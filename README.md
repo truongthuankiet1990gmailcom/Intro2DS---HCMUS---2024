@@ -21,4 +21,4 @@ Introduction to Data Science Project
     <tr>
         <td>22127492</td>
         <td>Hồ Đăng Phúc</td>
-    </tr>s
+    </tr>
