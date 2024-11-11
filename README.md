@@ -1,19 +1,5 @@
 # Intro2DS---HCMUS---2024
 Introduction to Data Science Project
-<style>
-  table {
-    margin: auto;
-    width: 45%; /* Adjust the width as needed */
-  }
-  td {
-    text-align: center;
-    padding: 8px; /* Adding padding for better readability */
-  }
-  th
-  {
-    text-align: center;
-  }
-</style>
 
 <table>
     <tr>
