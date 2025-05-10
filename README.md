@@ -40,19 +40,22 @@ We structured our work around the core phases of the CRISP-DM methodology, from 
 
 ---
 
-## 🎯 2. Business Problem and Objective
+## ⚙️ 2. Tools and technologies
+- The technologies and tools used were Python (Pandas, Numpy, Matplotlib, Seaborn, Scikit-Learn, XGBoost, Gradient Boosting), Jupyter Notebook, Git and Github (version control), machine learning classification algorithms, statistics, Anaconda (terminal) and Visual Studio Code (project development environment).
 
-### 2.1 Business Problem  
+## 🎯 3. Business Problem and Objective
+
+### 3.1 Business Problem  
 Movie producers and studios often face uncertainty when estimating a movie’s potential success. Understanding the key factors that drive movie performance helps reduce financial risk and improve strategic planning.
 
-### 2.2 Objectives  
+### 3.2 Objectives  
 1. Analyze key drivers of a movie’s revenue and rating success.  
-2. Develop regression models to **predict worldwide gross**.  
+2. Develop regression models to **predict total gross**.  
 3. Use data science to assist decision-making in budgeting, casting, and marketing.
 
 ---
 
-## 🗃️ 3. Dataset Description
+## 🗃️ 4. Dataset Description
 
 The dataset was compiled from multiple sources and contains the following key features:
 
@@ -60,19 +63,19 @@ The dataset was compiled from multiple sources and contains the following key fe
 - 📅 `Release Date`, `Runtime`  
 - 💰 `Production Budget`, `Domestic Gross`, `Worldwide Gross`  
 - ⭐ `CriticScore`, `UserScore`  
-- 🔗 `Link`
+- 🔗 https://www.rottentomatoes.com/, https://www.metacritic.com/
 
 The dataset provides both numerical and categorical attributes, enabling diverse types of analyses (correlation, regression, classification).
 
 ---
 
-## 📊 4. Main Insights (from EDA)
+## 📊 5. Main Insights (from EDA)
 
 1. **User scores and critic scores** have moderate correlation, but user preferences differ significantly by genre.
 <img src = "Images/user_score_and_scritic_score.png">
 
-2. **Budget** is a strong indicator of potential gross, but not all high-budget films succeed.
-
+2. **Score** is a strong indicator of potential gross, but not all high-scoring films succeed.
+<img src ="Images/gross_score.png">
 
 3. Some **ratings** (like PG, R) tend to dominate box office revenue.
 <img src ="Images/budget_gross.png">
@@ -84,13 +87,13 @@ The dataset provides both numerical and categorical attributes, enabling diverse
 <img src = "Images/worldwide_gross.png">
 ---
 
-## 🤖 5. Modelling Approach
+## 🤖 6. Modelling Approach
 
 We applied the following:
 
 To solve the regression task of predicting a movie’s Total Revenue, we followed a structured and iterative modelling workflow. This process included data preparation, model experimentation, evaluation, and selection of the most suitable algorithm. Below is a breakdown of the key steps:
 
-### 🔧 5.1. Data Preparation
+### 🔧 6.1. Data Preparation
 - **Target Variable**: `Total Gross = Worldwide Gross + Domestic Gross`
 
 - **Feature Selection:**
@@ -121,7 +124,7 @@ To solve the regression task of predicting a movie’s Total Revenue, we followe
 
     - As revenue data is typically right-skewed, we applied np.log1p() to Total Gross to reduce skew and improve model performance.
 
-### 🧪 5.2 Model Training & Comparison
+### 🧪 6.2 Model Training & Comparison
 We trained multiple regression models to evaluate which best captures the relationship between the predictors and the revenue.
 
 Models tested:
@@ -143,7 +146,7 @@ Each model was trained using:
 
 - **GridSearchCV** for hyperparameter tuning on advanced models
 
-### 📊 5.3 Evaluation Metrics
+### 📊 6.3 Evaluation Metrics
 
 #### 🧪 Evaluation:
 We evaluated models using:
