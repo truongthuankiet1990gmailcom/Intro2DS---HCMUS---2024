@@ -69,7 +69,7 @@ The dataset provides both numerical and categorical attributes, enabling diverse
 ## 📊 4. Main Insights (from EDA)
 
 1. **User scores and critic scores** have moderate correlation, but user preferences differ significantly by genre.
-<img src = "Images/user_score_and_critic_score.png">
+<img src = "Images/user_score_and_scritic_score.png">
 
 2. **Budget** is a strong indicator of potential gross, but not all high-budget films succeed.
 
@@ -81,7 +81,7 @@ The dataset provides both numerical and categorical attributes, enabling diverse
 <img src ="Images/season_released.png">
 
 5. There’s a visible revenue outlier group – massive hits skewing the data (e.g., blockbusters) and movie in recent years.
-<img src = "Images/worldwide_gross.png>
+<img src = "Images/worldwide_gross.png">
 ---
 
 ## 🤖 5. Modelling Approach
