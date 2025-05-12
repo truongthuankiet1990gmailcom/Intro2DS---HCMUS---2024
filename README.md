@@ -43,6 +43,8 @@ We structured our work around the core phases of the CRISP-DM methodology, from 
 ## ⚙️ 2. Tools and technologies
 - The technologies and tools used were Python (Pandas, Numpy, Matplotlib, Seaborn, Scikit-Learn, XGBoost, Gradient Boosting), Jupyter Notebook, Git and Github (version control), machine learning classification algorithms, statistics, Anaconda (terminal) and Visual Studio Code (project development environment).
 
+--- 
+
 ## 🎯 3. Business Problem and Objective
 
 ### 3.1 Business Problem  
@@ -56,14 +58,34 @@ Movie producers and studios often face uncertainty when estimating a movie’s p
 ---
 
 ## 🗃️ 4. Dataset Description
-
+### Data Collection
+#### The Numbers (link: https://www.the-numbers.com/)
+- This is the web that we crawled to get the budget and revenue of each movie.
+- Steps processed:
+    - Scrape movie budget data from paginated **URLs** using **requests** and **BeautifulSoup**.
+    - Extract details like release date, budget, and gross from tables.
+#### Rotten Tomatoes (link: https://www.rottentomatoes.com/)
+- This is the web that we crawed to get the information of movies like name, rating, user score, critic score, ... .
+- Steps processed:
+    - Use **requests_html** to render JavaScript-based pages.
+    - Extract movie details (title, scores, cast, etc.) from editorial pages and individual movie links.
+#### Metacritic (link: https://www.metacritic.com/)
+- Beside the score given from Rotten Tomatoes above, we also got scores from another reputated platform is Metacritic.
+- Steps processed:
+    - Generate URLs by formatting movie titles.
+    - Use requests with User-Agent to scrape Metascore and User Score from movie pages.
+#### Investopedia (Inflation Data, link: https://www.investopedia.com/)
+- In order to ensure the grosses of movies are equally compared, we needed to have the inflation rate of each year to calculate the true amount of financial features of each movie.
+- Step processed:
+    - Scrape inflation rates from a table using requests and BeautifulSoup.
+    - Calculate inflation-adjusted units for each year.
+### Data Information
 The dataset was compiled from multiple sources and contains the following key features:
 
 - 🎞️ `Title`, `Cast`, `Director`, `Genre`, `Studio`, `PlatformReleased`, `Rating`  
 - 📅 `Release Date`, `Runtime`  
 - 💰 `Production Budget`, `Domestic Gross`, `Worldwide Gross`  
 - ⭐ `CriticScore`, `UserScore`  
-- 🔗 https://www.rottentomatoes.com/, https://www.metacritic.com/
 
 The dataset provides both numerical and categorical attributes, enabling diverse types of analyses (correlation, regression, classification).
 
