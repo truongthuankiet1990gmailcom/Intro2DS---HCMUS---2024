@@ -92,7 +92,6 @@ Movie producers and studios often face uncertainty when estimating a movie’s p
   3. Parse the HTML response using `BeautifulSoup`.
   4. Extract Metascore and User Score from specific HTML elements.
   5. Log failed movies for later recrawling.
-  6. Save the data into a CSV file (`results.csv`).
 
 #### 4. Investopedia (Inflation Data)
 - **Website**: [Investopedia](https://www.investopedia.com/)
@@ -103,7 +102,6 @@ Movie producers and studios often face uncertainty when estimating a movie’s p
   3. Extract inflation rates from the table.
   4. Calculate inflation-adjusted units for each year using the formula:
      - $U_n = U_{n-1} \times (1 + \frac{r}{100})$
-  5. Save the data into a CSV file (`inflation_rate.csv`).
 
 ### Data Information
 The dataset was compiled from multiple sources and contains the following key features:
