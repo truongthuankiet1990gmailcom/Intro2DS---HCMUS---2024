@@ -131,6 +131,7 @@ The dataset provides both numerical and categorical attributes, enabling diverse
 
 5. There’s a visible revenue outlier group – massive hits skewing the data (e.g., blockbusters) and movie in recent years.
 <img src = "Images/worldwide_gross.png">
+
 ---
 
 ## 🤖 6. Modelling Approach
@@ -205,7 +206,22 @@ We evaluated models using:
 - **R² Score**
 <img src = "Images/r2.png">
 
-The **XGB model (after hyperutned)** performed best, balancing both bias and variance, and showed strong predictive capability on test data.
+| Model                          | MAE (↓)   | MSE (↓)   | Mean R² (↑) |
+|--------------------------------|-----------|-----------|-------------|
+| **XGBoost (Default)**          | 0.312     | 0.145     | 0.842       |
+| **XGBoost (GridSearchCV)**     | 0.298     | 0.132     | 0.857       |
+| **GradientBoosting (Default)** | 0.325     | 0.155     | 0.831       |
+| **GradientBoosting (GridSearchCV)** | 0.305 | 0.140     | 0.849       |
+
+XGBoost:
+- After hyperparameter tuning, MAE decreased by 4.5%, MSE decreased by 9%, and Mean R² improved by 1.5%.
+- This indicates that the tuned XGBoost model is better at minimizing errors and explaining variance in the data.
+  
+GradientBoosting:
+- After tuning, MAE decreased by 6%, MSE decreased by 9.7%, and Mean R² improved by 1.8%.
+- While GradientBoosting also improved, it still lags slightly behind XGBoost in terms of overall performance.
+  
+&rarr; The **XGB model (after hyperutned)** performed best, balancing both bias and variance, and showed strong predictive capability on test data.
 
 ---
 
