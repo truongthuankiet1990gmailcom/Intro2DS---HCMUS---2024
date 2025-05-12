@@ -59,26 +59,52 @@ Movie producers and studios often face uncertainty when estimating a movie’s p
 
 ## 🗃️ 4. Dataset Description
 ### Data Collection
-#### The Numbers (link: https://www.the-numbers.com/)
-- This is the web that we crawled to get the budget and revenue of each movie.
-- Steps processed:
-    - Scrape movie budget data from paginated **URLs** using **requests** and **BeautifulSoup**.
-    - Extract details like release date, budget, and gross from tables.
-#### Rotten Tomatoes (link: https://www.rottentomatoes.com/)
-- This is the web that we crawed to get the information of movies like name, rating, user score, critic score, ... .
-- Steps processed:
-    - Use **requests_html** to render JavaScript-based pages.
-    - Extract movie details (title, scores, cast, etc.) from editorial pages and individual movie links.
-#### Metacritic (link: https://www.metacritic.com/)
-- Beside the score given from Rotten Tomatoes above, we also got scores from another reputated platform is Metacritic.
-- Steps processed:
-    - Generate URLs by formatting movie titles.
-    - Use requests with User-Agent to scrape Metascore and User Score from movie pages.
-#### Investopedia (Inflation Data, link: https://www.investopedia.com/)
-- In order to ensure the grosses of movies are equally compared, we needed to have the inflation rate of each year to calculate the true amount of financial features of each movie.
-- Step processed:
-    - Scrape inflation rates from a table using requests and BeautifulSoup.
-    - Calculate inflation-adjusted units for each year.
+
+#### 1. The Numbers
+- **Website**: [The Numbers](https://www.the-numbers.com/)
+- **Purpose**: To collect movie budget and revenue data.
+- **Steps**:
+  1. Use `requests` to send GET requests to paginated URLs (e.g., `https://www.the-numbers.com/movie/budgets/all/{page_number}`).
+  2. Parse the HTML response using `BeautifulSoup`.
+  3. Extract data from the table, including:
+     - Release Date
+     - Movie Name
+     - Production Budget
+     - Domestic Gross
+     - Worldwide Gross
+  4. Iterate through all pages to collect data.
+
+#### 2. Rotten Tomatoes
+- **Website**: [Rotten Tomatoes](https://www.rottentomatoes.com/)
+- **Purpose**: To collect movie details such as title, critic score, user score, cast, director, genre, and more.
+- **Steps**:
+  1. Use `requests_html` to render JavaScript-based pages.
+  2. Parse the rendered HTML using `BeautifulSoup`.
+  3. Extract movie details from editorial pages and follow links to individual movie pages for additional data.
+  4. Handle missing data (e.g., movies without user scores).
+
+#### 3. Metacritic
+- **Website**: [Metacritic](https://www.metacritic.com/)
+- **Purpose**: To collect additional scores (Metascore and User Score) for movies.
+- **Steps**:
+  1. Format movie titles to generate URLs (e.g., replace spaces with `-`, remove special characters).
+  2. Use `requests` with a `User-Agent` header to mimic a browser.
+  3. Parse the HTML response using `BeautifulSoup`.
+  4. Extract Metascore and User Score from specific HTML elements.
+  5. Log failed movies for later recrawling.
+  6. Save the data into a CSV file (`results.csv`).
+
+#### 4. Investopedia (Inflation Data)
+- **Website**: [Investopedia](https://www.investopedia.com/)
+- **Purpose**: To collect historical inflation rates for adjusting financial data (e.g., budgets, grosses).
+- **Steps**:
+  1. Use `requests` with a `User-Agent` header to bypass web protection.
+  2. Parse the HTML response using `BeautifulSoup`.
+  3. Extract inflation rates from the table.
+  4. Calculate inflation-adjusted units for each year using the formula:
+     - $U_n = U_{n-1} \times (1 + \frac{r}{100})$
+  5. Save the data into a CSV file (`inflation_rate.csv`).
+
 ### Data Information
 The dataset was compiled from multiple sources and contains the following key features:
 
